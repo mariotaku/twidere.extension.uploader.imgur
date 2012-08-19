@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+	<string name="description">Imgur uploader by Mariotaku</string>
+	<string name="app_name">Twidere Imgur Uploader</string>
+	<string name="more_applications">More applications</string>
+	<string name="donate">Donate</string>
+	<string name="link_type">Link type</string>
+	<string name="api_key">API Key</string>
+	<string name="settings">Imgur Upload Settings</string>
+	<string name="link_type_original">Original image link</string>
+	<string name="link_type_imgur_page">Imgur page</string>
+
+</resources>

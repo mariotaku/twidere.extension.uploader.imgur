@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<string-array name="entries_link_type">
+		<item>@string/link_type_original</item>
+		<item>@string/link_type_imgur_page</item>
+	</string-array>
+	<string-array name="values_link_type">
+		<item>original</item>
+		<item>imgur_page</item>
+	</string-array>
+
+</resources>

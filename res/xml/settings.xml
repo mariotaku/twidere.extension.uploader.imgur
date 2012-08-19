@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<ListPreference
+		android:defaultValue="original"
+		android:entries="@array/entries_link_type"
+		android:entryValues="@array/values_link_type"
+		android:key="link_type"
+		android:title="@string/link_type"/>
+
+	<EditTextPreference
+		android:key="api_key"
+		android:singleLine="true"
+		android:title="@string/api_key"
+		android:typeface="monospace"/>
+
+	<Preference android:title="@string/more_applications">
+		<intent
+			android:action="android.intent.action.VIEW"
+			android:data="https://play.google.com/store/apps/developer?id=mariotaku"/>
+	</Preference>
+	<Preference android:title="@string/donate">
+		<intent
+			android:action="android.intent.action.VIEW"
+			android:data="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=mariotaku.lee%40gmail%2ecom&amp;item_name=Donate%20to%20Twidere&amp;currency_code=USD"/>
+	</Preference>
+
+</PreferenceScreen>
