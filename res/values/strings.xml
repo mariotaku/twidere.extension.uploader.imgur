@@ -10,5 +10,6 @@
 	<string name="settings">Imgur Upload Settings</string>
 	<string name="link_type_original">Original image link</string>
 	<string name="link_type_imgur_page">Imgur page</string>
+	<string name="service_name">Imgur</string>
 
 </resources>

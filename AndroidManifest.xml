@@ -25,7 +25,7 @@
 
 		<service
 			android:name="ImgurUploaderService"
-			android:label="Imgur">
+			android:label="@string/service_name">
 			<intent-filter>
 				<action android:name="org.mariotaku.twidere.EXTENSION_UPLOAD_IMAGE"/>
 
