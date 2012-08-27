@@ -11,5 +11,9 @@
 	<string name="link_type_original">Original image link</string>
 	<string name="link_type_imgur_page">Imgur page</string>
 	<string name="service_name">Imgur</string>
+	<string name="error_message">Error: <xliff:g id="message">%s</xliff:g></string>
+	<string name="error_message_no_api_key">Imgur API key not set!</string>
+	<string name="register_for_api_key">Register for an API key</string>
+	<string name="api_key_summary">You must register for an API key in order to use this extension.</string>
 
 </resources>

@@ -23,7 +23,10 @@ import android.app.Service;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.os.Handler;
 import android.os.IBinder;
+import android.os.Message;
+import android.widget.Toast;
 
 /**
  * Image uploader example
@@ -33,12 +36,30 @@ import android.os.IBinder;
 public class ImgurUploaderService extends Service implements Constants {
 
 	private final ImageUploaderStub mBinder = new ImageUploaderStub(this);
+	
+	private static final int ERROR_ID_NO_API_KEY = 1;
 
 	@Override
 	public IBinder onBind(Intent intent) {
 		return mBinder;
 	}
 
+	final Handler mErrorHandler = new Handler() {
+
+		@Override
+		public void handleMessage(Message msg) {
+			switch (msg.what) {
+				case ERROR_ID_NO_API_KEY: {
+					final String error_message = getString(R.string.error_message_no_api_key);
+					Toast.makeText(ImgurUploaderService.this, getString(R.string.error_message, error_message), Toast.LENGTH_LONG).show();
+					break;
+				}
+			}
+			super.handleMessage(msg);
+		}
+		
+	};
+	
 	/**
 	 * @param file_uri Image file uri to send
 	 * @param message Tweet to send, you can use this to describe image you
@@ -51,8 +72,11 @@ public class ImgurUploaderService extends Service implements Constants {
 		if (!file.exists()) return null;
 		final SharedPreferences preferences = getSharedPreferences(SHARED_PREFERRENCES_NAME, MODE_PRIVATE);
 		final String url = "http://api.imgur.com/2/upload.json";
-		final String user_api_key = preferences.getString(PREFERENCE_KEY_API_KEY, null);
-		final String api_key = user_api_key != null && user_api_key.length() >= 0 ? user_api_key : IMGUR_API_KEY;
+		final String api_key = preferences.getString(PREFERENCE_KEY_API_KEY, null);
+		if (api_key == null || api_key.length() == 0) {
+			mErrorHandler.sendEmptyMessage(ERROR_ID_NO_API_KEY);
+			return null;
+		}
 		final String link_type = preferences.getString(PREFERENCE_KEY_LINK_TYPE, DEFAULT_LINK_TYPE);
 		final HttpClient httpClient = new DefaultHttpClient();
 		final HttpContext localContext = new BasicHttpContext();

@@ -11,9 +11,15 @@
 	<EditTextPreference
 		android:key="api_key"
 		android:singleLine="true"
+		android:summary="@string/api_key_summary"
 		android:title="@string/api_key"
 		android:typeface="monospace"/>
 
+	<Preference android:title="@string/register_for_api_key">
+		<intent
+			android:action="android.intent.action.VIEW"
+			android:data="https://imgur.com/register/api_anon"/>
+	</Preference>
 	<Preference android:title="@string/more_applications">
 		<intent
 			android:action="android.intent.action.VIEW"

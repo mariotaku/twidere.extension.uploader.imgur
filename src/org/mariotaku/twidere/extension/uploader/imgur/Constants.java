@@ -2,8 +2,6 @@ package org.mariotaku.twidere.extension.uploader.imgur;
 
 public interface Constants {
 
-	public static final String IMGUR_API_KEY = "cb8887ce6cc68966c804d05fb3408adf";
-
 	public static final String IMGUR_UPLOAD_URL = "http://api.imgur.com/2/upload";
 	public static final String SHARED_PREFERRENCES_NAME = "preferences";
 	
